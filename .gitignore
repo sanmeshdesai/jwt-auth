@@ -1,10 +1,10 @@
 # Dependencies
-backend/node_modules/
-frontend/node_modules/
+auth-backend/node_modules/
+auth-frontend/node_modules/
 
 # Environment files
-backend/.env
-frontend/.env
+auth-backend/.env
+auth-frontend/.env
 
 # Logs
 *.log
