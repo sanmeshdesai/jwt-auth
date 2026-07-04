@@ -1,17 +1,28 @@
-import express from 'express';
+import app from './app.js';
+import env from './config/env.js';
+import connectDB from './config/db.js';
 
 
-const app = express();
 
-const PORT = 4000
+const startServer = async() => {
+    try {
+        await connectDB();
 
-app.get('/', (req , res) => {
-    res.send('Server started.');
-});
+        app.listen(env.port, (req,res) => {
+            console.log(`Server ruunning on PORT : ${env.port}`);
+        });
+        
+    } catch(error) {
+        console.error(error);
+        process.exit(1);
+        
+    }
+};
 
-app.listen(PORT, (req,res) => {
-    console.log(`Server ruunning on PORT : ${PORT}`);
+startServer();
+
+
+
     
-});
 
 
